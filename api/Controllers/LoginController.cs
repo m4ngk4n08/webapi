@@ -24,7 +24,7 @@ namespace api.Controllers
             var test = new User()
             {
                 Id = 1,
-                UserName = "test",
+                Username = "test",
                 Password = "test"
             };
             var getme = _loginservice.Get(test);

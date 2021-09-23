@@ -1,5 +1,7 @@
+using api.Repository.Mapping;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Dapper.FluentMap;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +38,11 @@ namespace api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "api", Version = "v1" });
+            });
+
+            FluentMapper.Initialize(option =>
+            {
+                option.AddMap(new UserMap());
             });
         }
 

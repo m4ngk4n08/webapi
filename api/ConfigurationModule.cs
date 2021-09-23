@@ -23,7 +23,8 @@ namespace api
                 .InstancePerDependency()
                 .WithAttributeFiltering();
 
-            builder.Register<IDbConnection>(ctx => new SqlConnection(_configuration.GetSection("ConnectionString:APIConnection").Value));
+            builder.Register<IDbConnection>(ctx => 
+            new SqlConnection(_configuration.GetSection("ConnectionString:APIConnection").Value));
         }
     }
 }

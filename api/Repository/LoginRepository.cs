@@ -17,9 +17,9 @@ namespace api.Repository
 
         public IEnumerable<User> Get()
         {
-            var sql = @"select * from my_user";
-
-            return _dbConnection.Query<User>(sql);
+            var sql = @"select * from [dbo].[USER]";
+            var returnValue = _dbConnection.Query<User>(sql);
+            return returnValue ?? null;
         }
 
         public User Get(User entity)
